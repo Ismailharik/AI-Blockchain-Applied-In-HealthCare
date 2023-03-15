@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  #Start Mongo db
+  mongodb:
+    image: mongo:latest
+    container_name: Mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - micros
+  #Start keycloak database
+  #Start consul server
+  consul-server:
+    image: consul
+    container_name: consul-server
+    restart: always
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command: "agent -server -ui -node=server-1 -bsrcsrcootstrap-expect=1 -client=0.0.0.0"
+    networks:
+      - micros
+  #End Consul server
+
+networks:
+  micros:
+    driver: bridge
