@@ -46,18 +46,8 @@ public class GateWayServiceApplication {
     @Bean
     RouteLocator routes(RouteLocatorBuilder builder){
         return builder.routes()
-                .route(r->r.path("/customers/**")
-                        .uri("lb://customers-service"))
-                .route(r->r.path("/vehicles/**")
-                        .uri("lb://cars-service"))
-                .route(r->r.path("/categories/**")
-                        .uri("lb://cars-service"))
-                .route(r->r.path("/offices/**","/employees/**")
-                        .uri("lb://offices-service"))
-                .route(r->r.path("/reservations/**")
-                        .uri("lb://orders-service"))
-                .route(r->r.path("/stockFeedBack/**")
-                        .uri("lb://orders-service"))
+                .route(r->r.path("/patients/**")
+                        .uri("lb://patient-service"))
                 .build();
     }
     @Bean
@@ -74,20 +64,4 @@ public class GateWayServiceApplication {
         });
         return groups;
     }
-//
-//    @Bean
-//    public CorsWebFilter corsWebFilter() {
-//        CorsConfiguration corsConfig = new CorsConfiguration();
-//        corsConfig.setAllowedOrigins(Arrays.asList("*"));
-//        corsConfig.setMaxAge(3600L);
-//        corsConfig.addAllowedMethod("*");
-//        corsConfig.addAllowedHeader("Requestor-Type");
-//        corsConfig.addExposedHeader("X-Get-Header");
-//
-//        UrlBasedCorsConfigurationSource source =
-//                new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/**", corsConfig);
-//
-//        return new CorsWebFilter(source);
-//    }
 }

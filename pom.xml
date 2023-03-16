@@ -15,9 +15,11 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
               <!--  SERVICES  -->
-    <module>customers-service</module>
     <module>config-service</module>
     <module>gateway-service</module>
+      <module>patient-service</module>
+    <module>hospital-service</module>
+      <module>ai-model-service</module>
   </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
