@@ -27,7 +27,14 @@ public class DoctorServiceImpl implements DoctorService {
         return doctorRepository.save(doctor);
     }
 
-    /*
-    * CRUD FOR doctor
-    * */
+    @Override
+    public void deleteDoctor(Long doctorId) throws DoctorNotFoundException {
+        Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(()->new DoctorNotFoundException(doctorId));
+        doctorRepository.delete(doctor);
+    }
+    @Override
+    public Doctor updateDoctor(Doctor doctor) {
+        return  doctorRepository.save(doctor);
+    }
+
 }

@@ -10,5 +10,7 @@ public interface DoctorService {
     List<Doctor> getAllDoctors();
     Doctor getDoctorById(Long doctorId) throws DoctorNotFoundException;
     Doctor addDoctor(Doctor doctor);
+    void deleteDoctor(Long doctorId) throws DoctorNotFoundException;
+    Doctor updateDoctor(Doctor doctor);
 
 }

@@ -4,7 +4,7 @@ server:
   port: 8083
 spring:
   application:
-    name: customers-service
+    name: patients-service
   config:
     import: optional:configserver:http://${HOST_NAME:localhost}:${SPRING_CONFIG_PORT:8888}
   cloud:
@@ -15,10 +15,9 @@ spring:
     mongodb:
       port: ${MONGO_PORT:27017}
       host: ${MONGO_HOST:localhost}
-      database: customers-service
+      database: patients-service
       repositories:
         enabled: 'true'
-
 
 management:
   endpoints:

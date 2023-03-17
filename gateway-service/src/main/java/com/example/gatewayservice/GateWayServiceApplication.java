@@ -47,7 +47,7 @@ public class GateWayServiceApplication {
     RouteLocator routes(RouteLocatorBuilder builder){
         return builder.routes()
                 .route(r->r.path("/patients/**")
-                        .uri("lb://patient-service"))
+                        .uri("lb://patients-service"))
                 .build();
     }
     @Bean

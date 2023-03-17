@@ -15,11 +15,11 @@
         <module name="hospital-service" />
         <module name="patient-service" />
         <module name="config-service" />
-        <module name="ai-model-service" />
         <module name="gateway-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ai-model-service" target="17" />
       <module name="customer-service" target="17" />
       <module name="customers-service" target="17" />
     </bytecodeTargetLevel>
