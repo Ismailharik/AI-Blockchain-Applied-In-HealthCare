@@ -1,0 +1,99 @@
+<!-- ======= Appointment Section ======= -->
+<section id="appointment" class="appointment section-bg">
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Check Your Health with our Ai Model</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
+                sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <form [formGroup]="patientForm">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="id">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                        data-rule="email" data-msg="Please enter a valid email" formControlName="fullName">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone"
+                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="phone">
+                    <div class="validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group mt-3">
+                    <input type="datetime" name="date" class="form-control datepicker" id="date"
+                        placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter birthdate"
+                        formControlName="birthdate">
+                    <div class="validate"></div>
+                </div>
+            </div>
+            <div class="text-center"><button (click)="saveUpdate()">Make an Appointment</button></div>
+        </form>
+
+        <div class="mb-3 mt-3">
+            <h2>Enter your Analysis</h2>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+        </div>
+        <form [formGroup]="analysisForm">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Pregnancies"
+                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="Pregnancies">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Glucose"
+                        data-rule="email" data-msg="Please enter a valid email" formControlName="Glucose">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="BloodPressure"
+                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="BloodPressure">
+                    <div class="validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group mt-3">
+                    <input name="SkinThickness" class="form-control" placeholder="SkinThickness" data-rule="minlen:4"
+                        data-msg="SkinThickness" formControlName="SkinThickness">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group mt-3">
+                    <input name="Insulin" class="form-control" placeholder="Insulin" data-rule="minlen:4"
+                        data-msg="Insulin" formControlName="Insulin">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group mt-3">
+                    <input name="BMI" class="form-control" placeholder="BMI" data-rule="minlen:4" data-msg="BMI"
+                        formControlName="BMI">
+                    <div class="validate"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group mt-3">
+                    <input name="DiabetesPedigreeFunction" class="form-control" placeholder="DiabetesPedigreeFunction"
+                        data-rule="minlen:4" data-msg="DiabetesPedigreeFunction"
+                        formControlName="DiabetesPedigreeFunction">
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group mt-3">
+                    <input name="Age" class="form-control" placeholder="Age" data-rule="minlen:4" data-msg="Age"
+                        formControlName="Age">
+                    <div class="validate"></div>
+                </div>
+            </div>
+            <div class="text-center mt-5"><button (click)="checkAnalysis()">Make an Appointment</button></div>
+        </form>
+    </div>
+</section><!-- End Appointment Section -->
