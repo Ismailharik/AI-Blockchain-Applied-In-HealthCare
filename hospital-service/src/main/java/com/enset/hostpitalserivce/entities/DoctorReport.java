@@ -17,7 +17,7 @@ public class DoctorReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+    private String userId;
     private String diseaseReport;
     private String doctorName;
     private String hospitalName;

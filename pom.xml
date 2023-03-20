@@ -19,7 +19,6 @@
     <module>gateway-service</module>
     <module>patient-service</module>
     <module>hospital-service</module>
-
   </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>

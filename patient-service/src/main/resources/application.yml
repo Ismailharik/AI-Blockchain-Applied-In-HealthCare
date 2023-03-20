@@ -7,6 +7,11 @@ spring:
     name: patients-service
   config:
     import: optional:configserver:http://${HOST_NAME:localhost}:${SPRING_CONFIG_PORT:8888}
+#  security:
+#    oauth2:
+#      resource-server:
+#        jwt:
+#          issuer-uri: http://${KC_HOST:localhost}:${KC_PORT:8080}/auth/realms/healthChain
   cloud:
     consul:
       port: ${CONSUL_PORT:8500}

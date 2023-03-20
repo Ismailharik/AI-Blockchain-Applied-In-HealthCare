@@ -2,5 +2,6 @@ com\example\patientservice\repository\PatientRepository.class
 com\example\patientservice\services\PatientService.class
 com\example\patientservice\PatientServiceApplication.class
 com\example\patientservice\entities\Patient.class
+com\example\patientservice\exceptions\PatientNotFoundException.class
 com\example\patientservice\controller\PatientController.class
 com\example\patientservice\services\PatientServiceImpl.class

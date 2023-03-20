@@ -9,91 +9,114 @@
                 consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
                 sit in iste officiis commodi quidem hic quas.</p>
         </div>
-
-        <form [formGroup]="patientForm">
-            <div class="row">
-                <div class="col-md-4 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="id">
-                    <div class="validate"></div>
-                </div>
-                <div class="col-md-4 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                        data-rule="email" data-msg="Please enter a valid email" formControlName="fullName">
-                    <div class="validate"></div>
-                </div>
-                <div class="col-md-4 form-group mt-3 mt-md-0">
-                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone"
-                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="phone">
-                    <div class="validate"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 form-group mt-3">
-                    <input type="datetime" name="date" class="form-control datepicker" id="date"
-                        placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter birthdate"
-                        formControlName="birthdate">
-                    <div class="validate"></div>
-                </div>
-            </div>
-            <div class="text-center"><button (click)="saveUpdate()">Make an Appointment</button></div>
-        </form>
-
         <div class="mb-3 mt-3">
             <h2>Enter your Analysis</h2>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
         </div>
         <form [formGroup]="analysisForm">
             <div class="row">
                 <div class="col-md-4 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Pregnancies"
-                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="Pregnancies">
+                    <input type="number" class="form-control" placeholder="Pregnancies" data-rule="minlen:4"
+                        data-msg="Please entrer a valid value" formControlName="pregnancies">
                     <div class="validate"></div>
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Glucose"
-                        data-rule="email" data-msg="Please enter a valid email" formControlName="Glucose">
+                    <input type="number" class="form-control" placeholder="Glucose" data-rule="minlen:4"
+                        data-msg="Please entrer a valid value" formControlName="glucose">
                     <div class="validate"></div>
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="BloodPressure"
-                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="BloodPressure">
+                    <input type="number" name="BloodPressure" class="form-control" id="BloodPressure"
+                        placeholder="BloodPressure" data-rule="minlen:4" data-msg="Please entrer a valid value"
+                        formControlName="bloodPressure">
                     <div class="validate"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 form-group mt-3">
-                    <input name="SkinThickness" class="form-control" placeholder="SkinThickness" data-rule="minlen:4"
-                        data-msg="SkinThickness" formControlName="SkinThickness">
+                    <input type="number" name="SkinThickness" class="form-control" placeholder="SkinThickness"
+                        data-rule="minlen:4" data-msg="Please entrer a valid value" formControlName="skinThickness">
                     <div class="validate"></div>
                 </div>
                 <div class="col-md-4 form-group mt-3">
-                    <input name="Insulin" class="form-control" placeholder="Insulin" data-rule="minlen:4"
-                        data-msg="Insulin" formControlName="Insulin">
+                    <input type="number" name="Insulin" class="form-control" placeholder="Insulin" data-rule="minlen:4"
+                        data-msg="Please entrer a valid value" formControlName="insulin">
                     <div class="validate"></div>
                 </div>
                 <div class="col-md-4 form-group mt-3">
-                    <input name="BMI" class="form-control" placeholder="BMI" data-rule="minlen:4" data-msg="BMI"
-                        formControlName="BMI">
+                    <input type="number" name="BMI" class="form-control" placeholder="BMI" data-rule="minlen:4"
+                        data-msg="Please entrer a valid value" formControlName="bmi">
                     <div class="validate"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 form-group mt-3">
-                    <input name="DiabetesPedigreeFunction" class="form-control" placeholder="DiabetesPedigreeFunction"
-                        data-rule="minlen:4" data-msg="DiabetesPedigreeFunction"
-                        formControlName="DiabetesPedigreeFunction">
+                    <input name="DiabetesPedigreeFunction" class="form-control" placeholder="Diabetes Pedigree"
+                        data-rule="minlen:4" data-msg="Please entrer a valid value"
+                        formControlName="diabetesPedigreeFunction">
                     <div class="validate"></div>
                 </div>
                 <div class="col-md-4 form-group mt-3">
-                    <input name="Age" class="form-control" placeholder="Age" data-rule="minlen:4" data-msg="Age"
-                        formControlName="Age">
+                    <input name="Age" class="form-control" placeholder="Age" data-rule="minlen:4"
+                        data-msg="Please entrer a valid value" formControlName="age">
                     <div class="validate"></div>
                 </div>
+                <div class="col-md-4 form-group mt-3">
+                    <input type="date" name="date" class="form-control datepicker" id="dateOfAnalysis" placeholder="Date Of Analysis (dd/MM/yyyy)" 
+                    formControlName="dateOfAnalysis">
+                </div>
             </div>
-            <div class="text-center mt-5"><button (click)="checkAnalysis()">Make an Appointment</button></div>
+            
+            <div class="text-center mt-5"><a class="text-center mt-5" style="cursor: pointer;" (click)="checkAnalysis()"  class="appointment-btn">Check your Analysis</a></div>
+
+
+        </form>
+        <div class="mt-5" *ngIf="showResult">
+            <div class="text-center" *ngIf="result *100 >50">
+                <img width="80" src="./assets/img/warning.gif" alt="">
+                <h2>OMG YOU're affected by , the probability is : <span style="color:red">{{result*100|number:'1.2-2'}}
+                        %</span> </h2>
+                <button>Make an appointment </button>
+            </div>
+            <div class="text-center" *ngIf="result*100<50">
+                <!-- <img width="80"  src="./assets/img/warning.gif" alt=""> -->
+                <h2> Hopefully You're not Affected , the probability is : <span
+                        style="color:green">{{result*100|number:'1.2-2'}} %</span> No need to make an appointement , but if you want click on button below</h2>
+            </div>
+        </div>
+        <div class="mb-3 mt-3">
+            <h2>Make an appointement</h2>
+        </div>
+
+
+        <form  [formGroup]="patientForm">
+            <div class="row">
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="fullName" class="form-control" name="fullName" id="fullName" placeholder="Full Name" 
+                    formControlName="fullName">
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone"
+                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="phone">
+                </div>
+                <div class="col-md-4  form-group mt-3 mt-md-0">
+                    <input type="email" name="email" class="form-control " id="email" placeholder="Email" 
+                    formControlName="email">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-4 form-group mt-3">
+                    <input type="date" name="date" class="form-control datepicker" id="date"placeholder="birthdate" 
+                    formControlName="birthdate">
+                </div>
+                <div class="col-md-4 form-group mt-3">
+                    <input type="tel" class="form-control" name="blockChainId" id="blockChainId" placeholder="Your blockChain Id"
+                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" formControlName="blockChainId">
+                </div>
+            </div>
+        
+            <div class="text-center mt-5"><a class="text-center mt-5 btn" style="cursor: pointer;" (click)="savePatient()"  class="appointment-btn">Make an Appointment</a></div>
+
         </form>
     </div>
 </section><!-- End Appointment Section -->

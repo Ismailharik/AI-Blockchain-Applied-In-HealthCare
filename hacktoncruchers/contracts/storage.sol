@@ -7,10 +7,10 @@ contract Storage {
         string hospitalName;
     }
 
-    mapping(uint256 => Record[]) private records;
+    mapping(string => Record[]) private records;
 
     function set(
-        uint256 userId,
+        string calldata userId,
         string calldata diseaseReport,
         string calldata doctorName,
         string calldata hospitalName
@@ -18,7 +18,7 @@ contract Storage {
         records[userId].push(Record(diseaseReport, doctorName, hospitalName));
     }
 
-    function get(uint256 userId, uint256 index)
+    function get(string calldata userId, uint256 index)
     public
     view
     returns (
@@ -29,13 +29,13 @@ contract Storage {
     {
         Record storage record = records[userId][index];
         return (
-        record.diseaseReport,
-        record.doctorName,
-        record.hospitalName
+            record.diseaseReport,
+            record.doctorName,
+            record.hospitalName
         );
     }
 
-    function getAll(uint256 userId)
+    function getAll(string calldata userId)
     public
     view
     returns (Record[] memory)

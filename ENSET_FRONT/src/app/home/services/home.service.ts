@@ -1,23 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Diabets } from '../models/diabets';
+import { environment } from 'src/environments/environment';
+import {  Hyperglycemia } from '../models/Hyperglycemia';
 import { Patient } from '../models/Patient';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-  checkAnaysis(diabets: Diabets):Observable<number> {
+
+  checkAnaysis(diabets: Hyperglycemia):Observable<any> {
     const featuresData = [
-      Number(diabets.Pregnancies),
-      Number(diabets.Glucose),
-      Number(diabets.BloodPressure),
-      Number(diabets.SkinThickness),
-      Number(diabets.Insulin),
-      Number(diabets.BMI),
-      Number(diabets.DiabetesPedigreeFunction),
-      Number(diabets.Age)
+      Number(diabets.pregnancies),
+      Number(diabets.glucose),
+      Number(diabets.bloodPressure),
+      Number(diabets.skinThickness),
+      Number(diabets.insulin),
+      Number(diabets.bmi),
+      Number(diabets.diabetesPedigreeFunction),
+      Number(diabets.age)
     ];
   
     const data = {
@@ -27,15 +29,18 @@ export class HomeService {
     const jsonData = JSON.stringify(data);
     console.log(jsonData);
     
-    return this.httpClient.post<number>("http://localhost:5000/predict", jsonData);
+    return this.httpClient.post<any>("http://localhost:5000/predict", jsonData);
   }
-
+  
+  saveUserAnalysis(hyperglycemia:Hyperglycemia) {
+    return this.httpClient.post<Patient>(environment.host+"/hyperglycemia",hyperglycemia)
+  }
 
   constructor(private httpClient:HttpClient) { 
 
   }
-  addPatient(patient:Patient):Observable<Patient>{
-    return this.httpClient.post<Patient>("http://localhost:8083/", patient);
+  savePatient(patient:Patient):Observable<Patient>{
+    return this.httpClient.post<Patient>(environment.host+ "/patients", patient);
   }
 
 

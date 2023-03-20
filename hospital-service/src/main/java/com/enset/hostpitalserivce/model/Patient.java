@@ -18,7 +18,8 @@ public class Patient {
     private String phone;
     private String fullName;
     private String email;
-    private String password;
     private Date birthdate;
+    private String blockChainId;
     private boolean status;
+
 }

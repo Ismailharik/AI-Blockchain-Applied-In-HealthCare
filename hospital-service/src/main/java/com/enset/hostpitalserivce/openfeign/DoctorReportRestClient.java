@@ -15,6 +15,7 @@ public interface DoctorReportRestClient {
     @PostMapping("/store")
     public Object postReportToBlockChain(@RequestBody DoctorReport doctorReport);
 
-    @GetMapping("/get/{patientId}")
-    public Object getPatientHistory(@PathVariable Long patientId);
+    //this method will make request to node-service to get the history of block Chain of the actual user
+    @GetMapping("/get/{patientChain}")
+    public Object getPatientHistory(@PathVariable String patientChain);
 }

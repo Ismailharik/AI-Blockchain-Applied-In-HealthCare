@@ -38,7 +38,7 @@ app.get("/get/:userId", async (req, res) => {
     try {
         const storageInstance = await Storage.deployed();
 
-        const specificUserId = parseInt(req.params.userId);
+        const specificUserId = req.params.userId;
         const storedDataArray = await storageInstance.getAll.call(specificUserId);
 
         const records = storedDataArray.map((record) => ({

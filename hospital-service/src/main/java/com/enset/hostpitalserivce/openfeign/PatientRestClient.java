@@ -15,7 +15,7 @@ public interface PatientRestClient {
     @GetMapping("/patients/{id}")
     public Patient getPatientById(@PathVariable Long id);
 
-    @GetMapping("/patients")
+    @GetMapping("/waitingPatients")
     public List<Patient> getAllPatient();
 
     @DeleteMapping("/patients/{id}")

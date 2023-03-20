@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @SpringBootApplication
 @OpenAPIDefinition
@@ -30,11 +31,15 @@ public class PatientServiceApplication {
 	CommandLineRunner start(PatientRepository patientRepository) {
 
 		return args -> {
-			List<Patient> customers = new ArrayList<>(10);
-			for (int i = 0; i < 10; i++) {
-				customers.add(new Patient(i+1L, "053543" + i, "ismail "+i+1,"ismail" + i + "gmail.com", new Date()));
-			}
-			patientRepository.saveAll(customers);
+
+			List<Patient> patients = new ArrayList<>();
+
+			patients.add(new Patient(1L, "053543" , "ismail 1","ismail1"+ "@gmail.com", new Date(),"$2a$04$Qsp6DjEWWp9bDmaJ4oELjOCDdYRnB1NEakKd7324sxF0gfh8kgo0i",false));
+			patients.add(new Patient(2L, "053543" , "ismail 2","ismail2"+ "@gmail.com", new Date(),"01aa8c12-3609-43cf-87d4-1d75f6b844da",false));
+			patients.add(new Patient(3L, "053543" , "ismail 3","ismail3"+ "@gmail.com", new Date(),"5bb56046-6065-48f1-8406-bea967dae721",false));
+			patients.add(new Patient(4L, "053543" , "ismail 4","ismail4"+ "@gmail.com", new Date(),"78c3fc84-3d44-495e-a87c-cff45f6420ec",false));
+
+			patientRepository.saveAll(patients);
 
 //			System.out.println(customerRepository.findAll());
 		};

@@ -1,13 +1,13 @@
 package com.enset.hostpitalserivce.controller;
 
 import com.enset.hostpitalserivce.entities.DoctorReport;
+import com.enset.hostpitalserivce.entities.Hyperglycemia;
 import com.enset.hostpitalserivce.model.Patient;
 import com.enset.hostpitalserivce.openfeign.DoctorReportRestClient;
 import com.enset.hostpitalserivce.openfeign.PatientRestClient;
 import com.enset.hostpitalserivce.services.HospitalService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import com.enset.hostpitalserivce.openfeign.PatientRestClient;
 import java.util.List;
 
 @RestController
@@ -16,7 +16,6 @@ import java.util.List;
 public class HospitalController {
     private HospitalService hospitalService;
     private DoctorReportRestClient doctorReportRestClient;
-    private PatientRestClient patientRestClient;
     @PostMapping("/patientDiagnostic")
     public Object patientDiagnostic(@RequestBody DoctorReport doctorReport){
         hospitalService.diagnosticPatientState(doctorReport);
@@ -42,8 +41,17 @@ public class HospitalController {
         System.out.println("get one patient from hospital service");
         return this.hospitalService.getPatientById(patientId);
     }
-    @GetMapping("/patients/historic/{patientId}")
-    public Object getPatientHistory(@PathVariable Long patientId){
-        return this.doctorReportRestClient.getPatientHistory(patientId);
+    @GetMapping("/patients/historic/{patientChain}")
+    public Object getPatientHistory(@PathVariable String patientChain){
+        return this.doctorReportRestClient.getPatientHistory(patientChain);
     }
+
+    /*
+    *this endpoint will return the analysis of the patient by it's id
+     */
+    @GetMapping("/patientAnalysis/{blockChainId}")
+    public Hyperglycemia getPatientAnalysis(@PathVariable String blockChainId){
+        return this.hospitalService.getPatientAnalysis(blockChainId);
+    }
+
 }

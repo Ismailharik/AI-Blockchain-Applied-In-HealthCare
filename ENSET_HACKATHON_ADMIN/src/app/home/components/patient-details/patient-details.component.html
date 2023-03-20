@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="row justify-content-center" *ngIf="patient">
+        <div class="col-md-10">
+            <h2 class="m-5">Patient Informations</h2>
+            <table class="table table-striped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <!-- <th>id</th> -->
+                        <th>Phone</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Birthdate</th>
+                        <th>Status</th>
+                        <th>Block CHain Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- <td>{{patient.id}}</td> -->
+                        <td><a href="tel:{{patient.phone}}">{{patient.phone}} </a></td>
+                        <td>{{patient.fullName}}</td>
+                        <td><a href="mailto:{{patient.email}}">{{patient.email}}</a></td>
+                        <td>{{patient.birthdate|date}}</td>
+                        <td>{{patient.status}}</td>
+                        <td style="word-break: break-all;">{{patient.blockChainId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center" *ngIf="hyperglycemia">
+        <div class="col-md-10">
+            <h2 class="m-5">Hyperglycemia Analysis (diabetic Analysis ) </h2>
+            <table class="table table-striped table-bordered mt-5 table-dark">
+                <thead>
+                    <tr>
+                        <th>Pregnancies</th>
+                        <th>Glucose</th>
+                        <th>BloodPressure</th>
+                        <th>SkinThickness</th>
+                        <th>Insulin</th>
+                        <th>BMI</th>
+                        <th>DiabetesPedigreeFunction</th>
+                        <th>Age</th>
+                        <th>Outcome</th>
+                        <!-- <th>patientId</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{hyperglycemia.pregnancies}}</td>
+                        <td>{{hyperglycemia.glucose}}</td>
+                        <td>{{hyperglycemia.bloodPressure}}</td>
+                        <td>{{hyperglycemia.skinThickness}}</td>
+                        <td>{{hyperglycemia.insulin}}</td>
+                        <td>{{hyperglycemia.bmi}}</td>
+                        <td>{{hyperglycemia.diabetesPedigreeFunction}}</td>
+                        <td>{{hyperglycemia.age}}</td>
+                        <td>{{hyperglycemia.outcome}}</td>
+                        <!-- <td>{{hyperglycemia.patientId}}</td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Start Patient History -->
+<div class="container">
+    <div class="row justify-content-center" *ngIf="diseaseHistory">
+        <div class="col-md-10">
+            <h2 class="m-5">Patient History  </h2>
+            <table class="table table-striped table-bordered mt-5 table-dark" >
+                <thead>
+                    <tr>
+                        
+                        <th>Doctor Name</th>
+                        <th>Hospital Name</th>
+                        <th>Disease Report</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="diseaseHistory.records">
+                    <tr *ngFor="let disease of diseaseHistory.records">
+                        <td>{{disease.doctorName}}</td>
+                        <td>{{disease.hospitalName}}</td>
+                        <td>{{disease.diseaseReport}}</td>
+
+                        <!-- <td>{{hyperglycemia.patientId}}</td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- End Patient History -->
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <section id="appointment" class="appointment section-bg"  *ngIf="patient">
+                <div class="container">
+                    <div class="section-title">
+                        <h2 class="m-5">Doctor Report</h2>
+                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
+                            sit in iste officiis commodi quidem hic quas.</p>
+                    </div>
+                    <form [formGroup]="DocterReportForm" >
+                        <div class="row" >
+                            <div class="col-md-4 form-group mt-3 mt-md-0">
+                                <input type="text" class="form-control" name="Doctor Name" id="doctorName" placeholder="Doctor Name" formControlName="doctorName">
+                            </div>
+                            <div class="col-md-4 form-group mt-3 mt-md-0">
+                                <input type="text" class="form-control" name="hospitalName" id="hospitalName" placeholder="Hospital Name" formControlName="hospitalName">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Right your report Here" name="diseaseReport" id="diseaseReport" formControlName="diseaseReport"></textarea>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="text-center mt-5 mb-5"><button (click)="sumbmitDoctorReport()">Add your Report on BLOCK CHAIN</button></div>
+                    </form>
+            
+                </div>
+            </section>
+    </div>
+</div>
+

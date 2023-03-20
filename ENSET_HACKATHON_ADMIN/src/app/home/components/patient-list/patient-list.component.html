@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row justify-content-center" *ngIf="patients" >
+        <div class="col-md-10">
+            <h2 class="m-5">List Of Waiting Patients</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th>Phone</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Birthdate</th>
+                        <th>Status</th>
+                        <th>block Chain Id</th>
+                        <th>add Report</th>
+                    </tr>
+                </thead>
+                <tbody > 
+                    <tr *ngFor="let patient of patients">
+                        <td>{{patient.phone}}</td>
+                        <td>{{patient.fullName}}</td>
+                        <td>{{patient.email}}</td>
+                        <td>{{patient.birthdate|date}}</td>
+                        <td>{{patient.status}}</td>
+                        <td style="word-break: break-all;">{{patient.blockChainId}}</td>
+                        <td class="text-center " >
+                            <a [routerLink]="['/patient-details',patient.id]" style="font-size: x-large;font-weight: bolder;text-decoration:none">+</a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
